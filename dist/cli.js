@@ -62,7 +62,7 @@ function displayBanner() {
 ╚═══════════════════════════════════════╝
 `;
     console.log(chalk.cyan(banner));
-    console.log(chalk.gray(`  ${getVersionInfo()}\n`));
+    console.log(chalk.gray(`  v${getVersion()}\n`));
 }
 displayBanner();
 program
@@ -88,6 +88,16 @@ program
     const needsAISelection = shouldShowInteractive && !options.ai;
     const needsMethodSelection = shouldShowInteractive && !options.method;
     const needsExpertConfirm = shouldShowInteractive && !options.withExperts;
+    
+    // 验证参数：必须提供项目名称或使用 --here 参数
+    if (!name && !options.here) {
+        console.error(chalk.red('错误: 请提供项目名称或使用 --here 参数在当前目录初始化'));
+        console.log(chalk.gray('示例:'));
+        console.log(chalk.gray('  novel init my-novel'));
+        console.log(chalk.gray('  novel init --here'));
+        process.exit(1);
+    }
+    
     if (needsAISelection || needsMethodSelection || needsExpertConfirm) {
         // 显示项目横幅
         displayProjectBanner();
@@ -137,10 +147,7 @@ program
             name = path.basename(projectPath);
         }
         else {
-            if (!name) {
-                spinner.fail('请提供项目名称或使用 --here 参数');
-                process.exit(1);
-            }
+            // name 已经在前面验证过，这里不会是 undefined
             projectPath = path.join(process.cwd(), name);
             if (await fs.pathExists(projectPath)) {
                 spinner.fail(`项目目录 "${name}" 已存在`);

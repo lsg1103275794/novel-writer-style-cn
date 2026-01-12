@@ -15,12 +15,12 @@ export function displayProjectBanner() {
  */
 export async function selectAIAssistant(configs) {
     if (!isInteractive()) {
-        return configs[0]; // 默认返回第一个配置
+        return configs[0].name; // 返回第一个配置的 name
     }
 
     const choices = configs.map(config => ({
         name: `${config.displayName} (${config.name})`,
-        value: config
+        value: config.name // 返回 name 而不是整个对象
     }));
 
     const { assistant } = await inquirer.prompt([
