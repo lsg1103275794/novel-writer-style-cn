@@ -1,0 +1,61 @@
+{
+  "styleName": "金庸风格",
+  "sourceAuthor": "金庸",
+  "analysisDate": "2025-01-12T10:30:00Z",
+  "confidence": 0.91,
+  
+  "vocabulary": {
+    "topWords": ["却是", "只见", "但见", "忽听", "江湖", "武功", "内力"],
+    "domainTerms": ["轻功", "真气", "经脉", "丹田", "招式", "剑法"],
+    "emotionalWords": {
+      "positive": ["欣喜", "愉悦", "畅快"],
+      "negative": ["愤怒", "悲伤", "忧虑"],
+      "neutral": ["沉思", "凝视", "端详"]
+    },
+    "formalityLevel": 0.82,
+    "ancientStyle": 0.78
+  },
+  
+  "syntax": {
+    "avgSentenceLength": 19.2,
+    "lengthDistribution": {
+      "short": 0.31,    // <15字
+      "medium": 0.46,   // 15-25字  
+      "long": 0.23      // >25字
+    },
+    "complexityScore": 0.65,
+    "commonPatterns": [
+      "却说{时间}，{人物}{动作}",
+      "只见{人物}{外貌描写}，{性格特征}",
+      "但听得{声音描写}，{人物反应}"
+    ]
+  },
+  
+  "narrative": {
+    "preferredPOV": "third_person_omniscient",
+    "tensePreference": "past_tense", 
+    "dialogueRatio": 0.42,
+    "narrativeDistance": "medium"
+  },
+  
+  "description": {
+    "sensoryBalance": {
+      "visual": 0.65,
+      "auditory": 0.20,
+      "tactile": 0.12,
+      "olfactory": 0.02,
+      "gustatory": 0.01
+    },
+    "environmentFocus": 0.73,
+    "characterFocus": 0.68,
+    "metaphorFrequency": 0.28,
+    "commonImagery": ["山峦", "云雾", "松涛", "剑光", "月色"]
+  },
+  
+  "rhythm": {
+    "avgParagraphLength": 87,
+    "paceVariation": 0.6,
+    "tensionCurve": "gradual_buildup",
+    "transitionStyle": "scene_break"
+  }
+}

@@ -1,0 +1,193 @@
+name: style-learning
+version: 1.0.0
+description: 风格学习与模仿插件 - 分析并学习目标作品的写作风格
+author: Novel Writer Team
+license: MIT
+
+# 插件配置
+config:
+  # 样本文件目录
+  samples_dir: "samples"
+  
+  # 分析报告输出目录
+  reports_dir: "analysis-reports"
+  
+  # 风格配置存储目录
+  styles_dir: "memory/styles"
+  
+  # 风格化输出目录
+  output_dir: "styled-output"
+  
+  # 分析参数
+  analysis:
+    min_sample_length: 10000  # 最小样本长度（字符）
+    max_sample_length: 1000000  # 最大样本长度
+    chunk_size: 5000  # 分块处理大小
+    
+  # 风格特征权重
+  feature_weights:
+    vocabulary: 0.25      # 词汇特征权重
+    sentence: 0.25        # 句式结构权重
+    narrative: 0.20       # 叙述技巧权重
+    descriptive: 0.15     # 描写手法权重
+    rhythm: 0.15          # 节奏控制权重
+    
+  # 支持的文件格式
+  supported_formats:
+    - ".txt"
+    - ".md"
+    - ".markdown"
+    
+# 命令定义
+commands:
+  # 风格分析命令
+  style-analyze:
+    description: "分析文件或目录的写作风格"
+    usage: "/style-analyze [文件路径或目录]"
+    examples:
+      - "/style-analyze samples/jinyong/射雕英雄传.txt"
+      - "/style-analyze samples/author-a/"
+      
+  author-analyze:
+    description: "分析作者的整体写作风格（基于多个作品）"
+    usage: "/author-analyze [作者目录]"
+    examples:
+      - "/author-analyze samples/jinyong/"
+      
+  style-compare:
+    description: "对比分析多个作者或作品的风格差异"
+    usage: "/style-compare [样本1] [样本2] [样本3...]"
+    examples:
+      - "/style-compare samples/jinyong/ samples/gulong/"
+      
+  # 风格学习命令
+  style-learn:
+    description: "学习目标样本的写作风格"
+    usage: "/style-learn [样本路径] --name=[风格名称]"
+    parameters:
+      - name: "样本路径"
+        required: true
+        description: "要学习的样本文件或目录路径"
+      - name: "--name"
+        required: true
+        description: "为学习的风格指定名称"
+      - name: "--overwrite"
+        required: false
+        description: "是否覆盖同名风格"
+    examples:
+      - "/style-learn samples/jinyong/ --name='金庸风格'"
+      - "/style-learn samples/reference/target.txt --name='目标风格' --overwrite"
+      
+  style-list:
+    description: "查看已学习的所有风格"
+    usage: "/style-list"
+    
+  style-switch:
+    description: "切换当前使用的默认风格"
+    usage: "/style-switch [风格名称]"
+    examples:
+      - "/style-switch 金庸风格"
+      
+  style-info:
+    description: "查看特定风格的详细信息"
+    usage: "/style-info [风格名称]"
+    examples:
+      - "/style-info 金庸风格"
+      
+  # 风格化创作命令
+  write-styled:
+    description: "使用指定风格进行创作"
+    usage: "/write-styled [章节名] --style=[风格名]"
+    parameters:
+      - name: "章节名"
+        required: true
+        description: "要创作的章节名称"
+      - name: "--style"
+        required: true
+        description: "使用的风格名称"
+      - name: "--length"
+        required: false
+        description: "目标字数"
+    examples:
+      - "/write-styled 第1章 初入江湖 --style='金庸风格'"
+      - "/write-styled 第2章 奇遇 --style='古龙风格' --length=3000"
+      
+  style-convert:
+    description: "将现有文本转换为目标风格"
+    usage: "/style-convert [文本文件] --target=[风格名]"
+    parameters:
+      - name: "文本文件"
+        required: true
+        description: "要转换的文本文件路径"
+      - name: "--target"
+        required: true
+        description: "目标风格名称"
+      - name: "--output"
+        required: false
+        description: "输出文件路径"
+    examples:
+      - "/style-convert content/chapter-01.md --target='金庸风格'"
+      - "/style-convert draft.txt --target='个人风格' --output=styled-draft.txt"
+      
+  rewrite-styled:
+    description: "使用指定风格改写文本段落"
+    usage: "/rewrite-styled [文本内容] --style=[风格名]"
+    examples:
+      - "/rewrite-styled '他走进了房间，看到了一个人。' --style='金庸风格'"
+      
+  # 高级功能命令
+  style-blend:
+    description: "融合多种风格创建新风格"
+    usage: "/style-blend [风格1] [风格2] --ratio=[比例] --name=[新风格名]"
+    parameters:
+      - name: "--ratio"
+        required: false
+        default: "0.5:0.5"
+        description: "风格融合比例"
+      - name: "--name"
+        required: true
+        description: "新风格的名称"
+    examples:
+      - "/style-blend 金庸风格 古龙风格 --ratio=0.7:0.3 --name='武侠融合风格'"
+      
+  style-validate:
+    description: "验证文本与目标风格的一致性"
+    usage: "/style-validate [文本文件] --target=[风格名]"
+    examples:
+      - "/style-validate content/chapter-01.md --target='金庸风格'"
+      
+  style-similarity:
+    description: "计算两个文本的风格相似度"
+    usage: "/style-similarity [文本1] [文本2]"
+    examples:
+      - "/style-similarity content/chapter-01.md samples/reference.txt"
+
+# 专家模式
+experts:
+  style-expert:
+    description: "风格分析专家，提供个性化的风格学习指导"
+    usage: "/expert style-expert"
+    capabilities:
+      - "深度风格分析和解读"
+      - "个性化学习方案制定"
+      - "风格问题诊断和建议"
+      - "创作风格指导"
+
+# 依赖的核心功能
+dependencies:
+  - "core/character.md"  # 角色分析
+  - "core/style.md"      # 文风专家
+  - "memory/personal-voice.md"  # 个人语料（如果存在）
+
+# 自动创建的目录结构
+auto_create_dirs:
+  - "samples"
+  - "analysis-reports"
+  - "memory/styles"
+  - "styled-output"
+
+# 文件模板
+templates:
+  style_config: "style-config-template.json"
+  analysis_report: "style-analysis-template.md"
+  comparison_report: "style-comparison-template.md"

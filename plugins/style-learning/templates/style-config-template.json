@@ -1,0 +1,239 @@
+{
+  "styleName": "{{STYLE_NAME}}",
+  "sourceAuthor": "{{AUTHOR_NAME}}",
+  "analysisDate": "{{ANALYSIS_DATE}}",
+  "sampleFiles": [
+    "{{SAMPLE_FILE_1}}",
+    "{{SAMPLE_FILE_2}}"
+  ],
+  "sampleWordCount": {{WORD_COUNT}},
+  "confidence": {{CONFIDENCE_SCORE}},
+  "version": "1.0.0",
+  
+  "metadata": {
+    "genre": "{{GENRE}}",
+    "period": "{{TIME_PERIOD}}",
+    "language": "zh-CN",
+    "region": "{{REGION}}",
+    "tags": [
+      "{{TAG_1}}",
+      "{{TAG_2}}",
+      "{{TAG_3}}"
+    ]
+  },
+  
+  "vocabulary": {
+    "topWords": [
+      "{{TOP_WORD_1}}",
+      "{{TOP_WORD_2}}",
+      "{{TOP_WORD_3}}"
+    ],
+    "domainTerms": [
+      "{{DOMAIN_TERM_1}}",
+      "{{DOMAIN_TERM_2}}"
+    ],
+    "emotionalWords": {
+      "positive": [
+        "{{POSITIVE_WORD_1}}",
+        "{{POSITIVE_WORD_2}}"
+      ],
+      "negative": [
+        "{{NEGATIVE_WORD_1}}",
+        "{{NEGATIVE_WORD_2}}"
+      ],
+      "neutral": [
+        "{{NEUTRAL_WORD_1}}",
+        "{{NEUTRAL_WORD_2}}"
+      ]
+    },
+    "modifiers": {
+      "adjectives": [
+        "{{ADJECTIVE_1}}",
+        "{{ADJECTIVE_2}}"
+      ],
+      "adverbs": [
+        "{{ADVERB_1}}",
+        "{{ADVERB_2}}"
+      ]
+    },
+    "formalityLevel": {{FORMALITY_LEVEL}},
+    "colloquialismRate": {{COLLOQUIALISM_RATE}},
+    "vocabularyRichness": {{VOCABULARY_RICHNESS}}
+  },
+  
+  "syntax": {
+    "avgSentenceLength": {{AVG_SENTENCE_LENGTH}},
+    "lengthDistribution": {
+      "short": {{SHORT_SENTENCE_RATIO}},
+      "medium": {{MEDIUM_SENTENCE_RATIO}},
+      "long": {{LONG_SENTENCE_RATIO}}
+    },
+    "complexityScore": {{COMPLEXITY_SCORE}},
+    "sentenceTypes": {
+      "declarative": {{DECLARATIVE_RATIO}},
+      "interrogative": {{INTERROGATIVE_RATIO}},
+      "exclamatory": {{EXCLAMATORY_RATIO}},
+      "imperative": {{IMPERATIVE_RATIO}}
+    },
+    "punctuationStyle": {
+      "comma": {{COMMA_FREQUENCY}},
+      "period": {{PERIOD_FREQUENCY}},
+      "semicolon": {{SEMICOLON_FREQUENCY}},
+      "colon": {{COLON_FREQUENCY}},
+      "exclamation": {{EXCLAMATION_FREQUENCY}},
+      "question": {{QUESTION_FREQUENCY}},
+      "dash": {{DASH_FREQUENCY}},
+      "ellipsis": {{ELLIPSIS_FREQUENCY}}
+    },
+    "conjunctionPatterns": [
+      "{{CONJUNCTION_PATTERN_1}}",
+      "{{CONJUNCTION_PATTERN_2}}"
+    ]
+  },
+  
+  "narrative": {
+    "preferredPOV": "{{PREFERRED_POV}}",
+    "tensePreference": "{{TENSE_PREFERENCE}}",
+    "narrativeDistance": "{{NARRATIVE_DISTANCE}}",
+    "voiceCharacteristics": [
+      "{{VOICE_CHAR_1}}",
+      "{{VOICE_CHAR_2}}"
+    ],
+    "dialogueRatio": {{DIALOGUE_RATIO}},
+    "innerMonologueFreq": {{INNER_MONOLOGUE_FREQ}},
+    "narratorIntrusion": {{NARRATOR_INTRUSION}},
+    "temporalStructure": "{{TEMPORAL_STRUCTURE}}",
+    "focalizationStyle": "{{FOCALIZATION_STYLE}}"
+  },
+  
+  "description": {
+    "sensoryBalance": {
+      "visual": {{VISUAL_RATIO}},
+      "auditory": {{AUDITORY_RATIO}},
+      "tactile": {{TACTILE_RATIO}},
+      "olfactory": {{OLFACTORY_RATIO}},
+      "gustatory": {{GUSTATORY_RATIO}}
+    },
+    "detailLevel": {{DETAIL_LEVEL}},
+    "metaphorFrequency": {{METAPHOR_FREQUENCY}},
+    "simileFrequency": {{SIMILE_FREQUENCY}},
+    "personificationFreq": {{PERSONIFICATION_FREQ}},
+    "symbolismUsage": {{SYMBOLISM_USAGE}},
+    "environmentFocus": {{ENVIRONMENT_FOCUS}},
+    "characterFocus": {{CHARACTER_FOCUS}},
+    "actionFocus": {{ACTION_FOCUS}},
+    "emotionFocus": {{EMOTION_FOCUS}},
+    "commonImagery": [
+      "{{IMAGERY_1}}",
+      "{{IMAGERY_2}}",
+      "{{IMAGERY_3}}"
+    ],
+    "colorPalette": [
+      "{{COLOR_1}}",
+      "{{COLOR_2}}",
+      "{{COLOR_3}}"
+    ]
+  },
+  
+  "rhythm": {
+    "avgParagraphLength": {{AVG_PARAGRAPH_LENGTH}},
+    "paragraphVariation": {{PARAGRAPH_VARIATION}},
+    "paceVariation": {{PACE_VARIATION}},
+    "tensionCurve": "{{TENSION_CURVE}}",
+    "transitionStyle": "{{TRANSITION_STYLE}}",
+    "climaxIntensity": {{CLIMAX_INTENSITY}},
+    "informationDensity": {{INFORMATION_DENSITY}},
+    "rhythmPatterns": [
+      "{{RHYTHM_PATTERN_1}}",
+      "{{RHYTHM_PATTERN_2}}"
+    ],
+    "pauseFrequency": {{PAUSE_FREQUENCY}},
+    "accelerationPoints": [
+      "{{ACCELERATION_POINT_1}}",
+      "{{ACCELERATION_POINT_2}}"
+    ]
+  },
+  
+  "thematic": {
+    "commonThemes": [
+      "{{THEME_1}}",
+      "{{THEME_2}}",
+      "{{THEME_3}}"
+    ],
+    "moralStance": "{{MORAL_STANCE}}",
+    "worldview": "{{WORLDVIEW}}",
+    "conflictTypes": [
+      "{{CONFLICT_TYPE_1}}",
+      "{{CONFLICT_TYPE_2}}"
+    ],
+    "characterArchetypes": [
+      "{{ARCHETYPE_1}}",
+      "{{ARCHETYPE_2}}"
+    ]
+  },
+  
+  "cultural": {
+    "culturalBackground": "{{CULTURAL_BACKGROUND}}",
+    "historicalContext": "{{HISTORICAL_CONTEXT}}",
+    "socialReferences": [
+      "{{SOCIAL_REF_1}}",
+      "{{SOCIAL_REF_2}}"
+    ],
+    "literaryTradition": "{{LITERARY_TRADITION}}",
+    "influences": [
+      "{{INFLUENCE_1}}",
+      "{{INFLUENCE_2}}"
+    ]
+  },
+  
+  "technicalAspects": {
+    "averageChapterLength": {{AVG_CHAPTER_LENGTH}},
+    "structuralPreferences": [
+      "{{STRUCTURAL_PREF_1}}",
+      "{{STRUCTURAL_PREF_2}}"
+    ],
+    "openingTechniques": [
+      "{{OPENING_TECH_1}}",
+      "{{OPENING_TECH_2}}"
+    ],
+    "endingTechniques": [
+      "{{ENDING_TECH_1}}",
+      "{{ENDING_TECH_2}}"
+    ],
+    "transitionMethods": [
+      "{{TRANSITION_METHOD_1}}",
+      "{{TRANSITION_METHOD_2}}"
+    ]
+  },
+  
+  "qualityMetrics": {
+    "consistencyScore": {{CONSISTENCY_SCORE}},
+    "uniquenessIndex": {{UNIQUENESS_INDEX}},
+    "readabilityScore": {{READABILITY_SCORE}},
+    "emotionalRange": {{EMOTIONAL_RANGE}},
+    "stylisticComplexity": {{STYLISTIC_COMPLEXITY}}
+  },
+  
+  "applicationGuidelines": {
+    "bestSuitedFor": [
+      "{{SUITED_FOR_1}}",
+      "{{SUITED_FOR_2}}"
+    ],
+    "avoidIn": [
+      "{{AVOID_IN_1}}",
+      "{{AVOID_IN_2}}"
+    ],
+    "adaptationNotes": [
+      "{{ADAPTATION_NOTE_1}}",
+      "{{ADAPTATION_NOTE_2}}"
+    ],
+    "strengthAreas": [
+      "{{STRENGTH_1}}",
+      "{{STRENGTH_2}}"
+    ],
+    "limitationAreas": [
+      "{{LIMITATION_1}}",
+      "{{LIMITATION_2}}"
+    ]
+  }
+}
