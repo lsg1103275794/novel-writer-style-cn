@@ -27,7 +27,8 @@ export function getProjectInfo() {
                 name: packageJson.name || 'unknown',
                 version: packageJson.version || '1.0.0',
                 description: packageJson.description || '',
-                root: projectRoot
+                root: projectRoot,
+                installedAI: [] // 添加默认的 AI 配置数组
             };
         }
         
@@ -35,14 +36,16 @@ export function getProjectInfo() {
             name: path.basename(projectRoot),
             version: '1.0.0',
             description: '',
-            root: projectRoot
+            root: projectRoot,
+            installedAI: [] // 添加默认的 AI 配置数组
         };
     } catch (error) {
         return {
             name: 'unknown',
             version: '1.0.0',
             description: '',
-            root: process.cwd()
+            root: process.cwd(),
+            installedAI: [] // 添加默认的 AI 配置数组
         };
     }
 }

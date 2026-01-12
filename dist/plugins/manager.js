@@ -76,4 +76,11 @@ export class PluginManager {
     hasPlugin(name) {
         return this.plugins.has(name);
     }
+
+    /**
+     * 列出所有插件
+     */
+    listPlugins() {
+        return this.getPlugins();
+    }
 }
