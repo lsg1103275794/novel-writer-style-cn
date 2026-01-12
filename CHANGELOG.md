@@ -1,5 +1,82 @@
 # 更新日志
 
+## [0.21.1] - 2026-01-13
+
+### 🐛 重要修复
+
+#### CLI 工具模块缺失问题修复
+- **问题**: CLI 工具启动时报 `ERR_MODULE_NOT_FOUND` 错误，无法正常使用
+- **根本原因**: dist 目录缺少关键模块文件，导致 import 语句失败
+- **修复内容**:
+  - 新增 `dist/version.js` - 版本管理模块，提供 `getVersion()` 和 `getVersionInfo()` 函数
+  - 新增 `dist/plugins/manager.js` - 插件管理器，实现插件加载、列表和管理功能
+  - 新增 `dist/utils/project.js` - 项目工具模块，提供项目信息获取和根目录管理
+  - 新增 `dist/utils/interactive.js` - 交互界面模块，提供用户交互、选择和显示功能
+
+#### 插件系统功能完善
+- **问题**: `plugins:list` 命令执行失败，提示方法未定义
+- **修复**:
+  - 添加 `PluginManager.listPlugins()` 方法
+  - 在 `getProjectInfo()` 中添加 `installedAI` 属性
+  - 修复插件列表显示功能
+
+#### 项目配置优化
+- **Git 配置**: 更新 `.gitignore` 允许提交 dist 目录（CLI 工具必需的分发文件）
+- **版本管理**: 使用 `npm version patch` 自动更新版本号并创建 Git 标签
+
+### 📚 文档更新
+
+#### Git 工作流程规范优化
+- **项目定制化**: 针对 Novel Writer Style CN 项目特点定制 Git 规范
+- **作用域更新**: 更新为项目实际模块（`cli`、`plugins`、`dist`、`utils`、`templates` 等）
+- **NPM 发布流程**: 添加完整的 NPM 包发布和版本管理指南
+- **实际案例**: 基于真实修复经验提供工作流程示例和常见问题解决方案
+
+### 🔧 技术改进
+
+#### CLI 工具验证
+修复后的 CLI 工具现在完全正常工作：
+```bash
+# 版本检查
+novel --version  # 输出: 0.21.1
+
+# 功能验证
+novel --help     # 显示完整帮助信息
+novel check      # 检查系统环境
+novel plugins:list  # 列出已安装插件
+```
+
+#### 发布流程标准化
+建立了完整的修复→测试→发布→验证流程：
+1. 本地修复和测试
+2. Git 提交和推送
+3. NPM 版本更新和发布
+4. 远程验证和标签推送
+
+### 🎯 用户体验改进
+
+- ✅ CLI 工具启动不再报错
+- ✅ 所有核心命令正常工作
+- ✅ 插件管理功能完整可用
+- ✅ NPM 包可正常安装和使用
+- ✅ 提供详细的 Git 工作流程指南
+
+### 📦 发布信息
+
+- **NPM 包**: `novel-writer-style-cn@0.21.1`
+- **安装方式**: `npm install -g novel-writer-style-cn`
+- **GitHub 标签**: `v0.21.1`
+- **发布时间**: 2026-01-13
+
+### ⚠️ 重要提醒
+
+如果您之前安装的 0.21.0 版本无法正常使用，请升级到 0.21.1：
+```bash
+npm update -g novel-writer-style-cn
+```
+
+---
+
 ## [0.21.0] - 2026-01-12
 
 ### 🚀 增强功能：创作大师版 (Creative Master)
