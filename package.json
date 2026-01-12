@@ -1,6 +1,6 @@
 {
   "name": "novel-writer-style-cn",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "type": "module",
   "description": "AI 驱动的中文小说创作工具 - 基于结构化工作流的智能写作助手",
   "keywords": [
@@ -61,7 +61,9 @@
     "url": "https://github.com/lsg1103275794/novel-writer-style-cn/issues"
   },
   "novelWriter": {
-    "plugins": ["style-learning"],
+    "plugins": [
+      "style-learning"
+    ],
     "version": "0.21.0"
   }
 }
