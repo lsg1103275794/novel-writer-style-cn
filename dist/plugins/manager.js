@@ -192,13 +192,29 @@ export class PluginManager {
                 continue; // 如果 AI 目录不存在，跳过
             }
 
+            // 对于 TOML 平台（Gemini/Qwen），优先使用 commands-gemini 目录
+            if (config.toml) {
+                const geminiCommandsDir = path.join(sourcePath, 'commands-gemini');
+                if (await fs.pathExists(geminiCommandsDir)) {
+                    // 直接复制 TOML 文件
+                    const tomlFiles = (await fs.readdir(geminiCommandsDir)).filter(f => f.endsWith('.toml'));
+                    for (const tomlFile of tomlFiles) {
+                        const sourceFile = path.join(geminiCommandsDir, tomlFile);
+                        const targetFile = path.join(targetDir, tomlFile);
+                        await fs.copy(sourceFile, targetFile);
+                        injectedCount++;
+                    }
+                    continue; // 跳过 Markdown 转换
+                }
+            }
+
             for (const cmdFile of mdFiles) {
                 const cmdName = cmdFile.replace('.md', '');
                 const sourceFile = path.join(commandsDir, cmdFile);
                 const content = await fs.readFile(sourceFile, 'utf-8');
 
                 if (config.toml) {
-                    // 转换为 TOML 格式
+                    // 转换为 TOML 格式（如果没有 commands-gemini 目录）
                     const tomlContent = this.convertToToml(cmdName, content);
                     const targetFile = path.join(targetDir, `${cmdName}.toml`);
                     await fs.writeFile(targetFile, tomlContent, 'utf-8');

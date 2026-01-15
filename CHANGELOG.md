@@ -1,5 +1,70 @@
 # 更新日志
 
+## [0.22.3] - 2026-01-16
+
+### ✨ 新增：CLI 命令集成到 Gemini/Qwen 平台
+
+#### 功能新增
+
+- ✅ **Gemini/Qwen TOML 命令** - 为 CLI 命令创建专用 TOML 格式包装器
+- ✅ **智能命令注入** - 插件管理器优先使用 `commands-gemini/` 目录的 TOML 文件
+- ✅ **三个核心命令** - text-preprocess、nlp-analyze、style-check 现已支持 Gemini/Qwen
+
+#### 新增文件
+
+```
+plugins/style-learning/commands-gemini/
+├── text-preprocess.toml    # 文本预处理命令
+├── nlp-analyze.toml         # NLP 分析命令
+└── style-check.toml         # 风格一致性检测命令
+```
+
+#### 技术实现
+
+**插件管理器优化** - `dist/plugins/manager.js`
+```javascript
+// 对于 TOML 平台（Gemini/Qwen），优先使用 commands-gemini 目录
+if (config.toml) {
+    const geminiCommandsDir = path.join(sourcePath, 'commands-gemini');
+    if (await fs.pathExists(geminiCommandsDir)) {
+        // 直接复制 TOML 文件（保持高质量格式）
+        const tomlFiles = (await fs.readdir(geminiCommandsDir)).filter(f => f.endsWith('.toml'));
+        for (const tomlFile of tomlFiles) {
+            await fs.copy(sourceFile, targetFile);
+        }
+        continue; // 跳过 Markdown 转换
+    }
+}
+```
+
+#### 使用场景
+
+**完整工作流程（Gemini CLI）**：
+```bash
+# 1. 初始化项目（Gemini 平台）
+novel init my-novel --ai gemini --plugins style-learning
+
+# 2. CLI 预处理（终端）
+novel preprocess samples/jinyong/射雕英雄传.txt
+
+# 3. CLI 分析（终端）
+novel analyze clean/jinyong/射雕英雄传.txt --verbose
+
+# 4. AI 命令（Gemini CLI 内）
+/text-preprocess samples/author/book.txt
+/nlp-analyze clean/author/book.txt
+/style-check output/chapter.txt nlp/author/book.json
+```
+
+#### 优势
+
+- **双模式支持** - 既可以在终端直接运行 CLI，也可以在 AI 助手内调用
+- **高质量格式** - TOML 文件手工编写，包含详细说明和示例
+- **自动注入** - 安装插件时自动注入到 Gemini/Qwen 项目
+- **向后兼容** - 如果没有 `commands-gemini/` 目录，自动从 Markdown 转换
+
+---
+
 ## [0.22.2] - 2026-01-16
 
 ### 🐛 修复：跨平台路径兼容性

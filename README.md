@@ -493,6 +493,8 @@ novel preprocess <file> [选项]    # 预处理样本文本
 - `-o, --output <file>` - 输出处理后的文本到文件
 - `--quality` - 同时评估文本质量
 
+**AI 集成** (v0.22.3)：在 Gemini/Qwen 中可使用 `/text-preprocess` 命令
+
 ### `novel analyze` (v0.22.0 新增)
 
 ```bash
@@ -503,6 +505,8 @@ novel analyze <file> [选项]       # NLP 文本分析
 - `-o, --output <file>` - 输出结果到 JSON 文件
 - `--verbose` - 显示详细分析结果（高频词等）
 
+**AI 集成** (v0.22.3)：在 Gemini/Qwen 中可使用 `/nlp-analyze` 命令
+
 ### `novel check-style` (v0.22.0 新增)
 
 ```bash
@@ -511,6 +515,8 @@ novel check-style <file> <style-file> [选项]  # 风格一致性检测
 
 **选项**：
 - `-o, --output <file>` - 输出结果到 JSON 文件
+
+**AI 集成** (v0.22.3)：在 Gemini/Qwen 中可使用 `/style-check` 命令
 
 </details>
 
@@ -545,6 +551,7 @@ novel check-style <file> <style-file> [选项]  # 风格一致性检测
 查看完整的更新日志：**[CHANGELOG.md](CHANGELOG.md)**
 
 **最新版本亮点**：
+- v0.22.3 - ✨ **CLI 命令集成**：CLI 命令现已集成到 Gemini/Qwen 平台
 - v0.22.0 - 🚀 **重大突破**：NLP 算法集成 + 科学置信度评估系统
 - v0.21.6 - 🐛 **重要修复**：修复所有 AI 平台风格学习命令缺失问题
 - v0.21.5 - ✨ 插件命令自动注入系统
