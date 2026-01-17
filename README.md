@@ -58,8 +58,45 @@
 - ❌ **原项目**：`npm install -g novel-writer-cn`（不包含风格学习功能）
 
 **项目关系**：
-- **本项目**：[lsg1103275794/novel-writer-style-cn](https://github.com/lsg1103275794/novel-writer-style-cn) - 增加了突破性AI风格学习系统
+- **本项目（CLI 版）**：[lsg1103275794/novel-writer-style-cn](https://github.com/lsg1103275794/novel-writer-style-cn) - 增加了突破性AI风格学习系统
+- **WebUI 版本**：[lsg1103275794/novel-writer-style-cn-webui](https://github.com/lsg1103275794/novel-writer-style-cn-webui) - 可视化界面版本（开发中）🎨
 - **原项目**：[WordFlowLab/novel-writer](https://github.com/wordflowlab/novel-writer) - 基础七步方法论
+
+### 🎨 想要可视化界面？试试 WebUI 版本！
+
+如果你更喜欢图形化操作，我们提供了 **WebUI 可视化版本**：
+
+**✨ WebUI 版本特色**：
+- 🖥️ **浏览器界面** - 无需命令行，点击即用
+- 📊 **6 步可视化工作流** - 样本准备 → 预处理 → NLP 分析 → 风格学习 → AI 创作 → 一致性检测
+- 🔄 **实时流式输出** - 在浏览器中实时查看 Claude 的分析过程
+- 📁 **工作目录管理** - 支持项目选择和自定义路径
+- 🎯 **拖拽上传** - 轻松上传样本文件
+- 🌙 **深色/浅色主题** - 苹果风格设计
+
+**快速体验**：
+```bash
+# 克隆 WebUI 仓库
+git clone https://github.com/lsg1103275794/novel-writer-style-cn-webui.git
+cd novel-writer-style-cn-webui
+
+# 安装依赖
+npm install
+cd webui/server && npm install
+cd ../client && npm install
+
+# 启动 WebUI（Windows）
+cd ../..
+.\webui\start.ps1
+
+# 访问 http://localhost:36889
+```
+
+**📖 详细文档**：[WebUI 版本 README](https://github.com/lsg1103275794/novel-writer-style-cn-webui#readme)
+
+**⚠️ 开发状态**：WebUI 版本目前处于开发阶段，已在 Windows + Claude Code CLI 环境测试通过。欢迎尝鲜和贡献代码！
+
+---
 
 ### 🔧 使用第三方 API（LongCat、OpenRouter 等）
 
