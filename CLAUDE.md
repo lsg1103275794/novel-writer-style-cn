@@ -698,3 +698,59 @@ experts/
     ├── style.md             # 文风语言专家
     └── world.md             # 世界观设计专家
 ```
+
+## Critical: Memory Operations via MCP Only
+
+**禁止手动创建 memory 目录或文件。** 所有记忆操作必须通过 MCP oh-memos 工具完成。
+
+如果你想运行 `mkdir -p .../memory` 或用 `Write` 创建记忆文件 → **停下来**,改用 MCP oh-memos 工具。
+
+### Tools Available:
+`oh-memos_context_resume`, `oh-memos_search`(可带 `context` 做上下文感知检索), `oh-memos_save`, `oh-memos_list_v2`, `oh-memos_get`, `oh-memos_suggest`, `oh-memos_think`(证据包+缺口分析), `oh-memos_graph`(`mode`: related/path/impact/schema), `oh-memos_admin`(`action`: list_cubes/register_cube/create_user/validate_cubes/stats/calendar), `oh-memos_export_wiki`
+
+### Cube Routing (CRITICAL)
+
+每个项目有自己的 memory cube。**必须传 `project_path` 参数**,让 MCP server 自动推导 cube_id。
+
+推导规则: 取目录名 → 小写 → 替换 `-`/`.`/空格为 `_` → 追加 `_cube`
+
+示例:
+| 项目路径 | 自动推导 cube_id |
+|---------|----------------|
+| `/mnt/g/test/oh-memos` | `oh_memos_cube` |
+| `/mnt/g/Cyber/AudioCraft Studio` | `audiocraft_studio_cube` |
+| `~/projects/my-web-app` | `my_web_app_cube` |
+
+```python
+# 正确用法
+oh-memos_save(content="...", memory_type="BUGFIX", project_path="/mnt/g/test/oh-memos")
+oh-memos_search(query="...", project_path="/mnt/g/test/oh-memos")
+
+# 错误用法 — 不要硬编码 dev_cube
+oh-memos_save(content="...", cube_id="dev_cube")  # ✗
+```
+
+### Operational Workflow:
+1. **Before Coding (Context Retrieval)**:
+    - 在回答任何复杂问题或开始新功能前,**必须**使用 `oh-memos_search` 或 `oh-memos_list_v2` 检索项目记忆。
+    - 上下文压缩后,调用 `oh-memos_context_resume` 恢复上下文。
+
+2. **During Development (Dependency & Logic)**:
+    - 识别当前项目的技术栈版本。
+    - 如果发现现有记忆与当前代码冲突,使用 `oh-memos_graph`(mode=related)梳理关系。
+
+3. **After Coding (Knowledge Consolidation)**:
+    - 完成功能模块、修复 Bug 或达成技术决策后,**必须**使用 `oh-memos_save` 将关键信息写入记忆。
+    - **必须显式指定 `memory_type` 参数**,不依赖自动检测。
+
+### Memory Type 速查表
+- Bug 修复 → `BUGFIX` 或 `ERROR_PATTERN`
+- 技术决策 → `DECISION`
+- 发现陷阱 → `GOTCHA`
+- 代码模板 → `CODE_PATTERN`
+- 配置变更 → `CONFIG`
+- 完成里程碑 → `MILESTONE`
+- 新增功能 → `FEATURE`
+- 纯进度汇报 → `PROGRESS`
+
+**详细操作规则、MCP 工具使用说明、决策树见 `/project-memory` skill**
